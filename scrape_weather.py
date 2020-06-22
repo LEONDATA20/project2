@@ -14,7 +14,7 @@ def init_browser():
 def scrape_url (url):
     browser =  init_browser()
     browser.visit(url)
-    time.sleep(3)  #must 3 seconds
+    time.sleep(4)  #must 3 seconds
     html = browser.html
     soup =  bs(html,"html.parser")
     browser.quit()
