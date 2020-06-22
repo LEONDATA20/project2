@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, jsonify, send_from_directory
+from flask import Flask, render_template, redirect, jsonify, send_from_directory, url_for
 from flask_pymongo import PyMongo
 import scrape_weather
 
