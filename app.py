@@ -6,7 +6,9 @@ import scrape_weather
 app = Flask(__name__, static_url_path="") #can be used to specify a different path for the static files on the web. Defaults to the name of the static_folder folder.
 
 # Use PyMongo to establish Mongo connection
-mongo = PyMongo(app, uri="mongodb://localhost:27017/weather_app")
+# mongo = PyMongo(app, uri="mongodb://localhost:27017/weather_app")
+mongo = PyMongo(app, uri="mongodb://leon:ri123456@ds231749.mlab.com:31749/heroku_ft9m418t")
+
 
 
 # Route to render index.html template using data from Mongo
@@ -31,6 +33,21 @@ def send_bar(path):
 def send_bar2(path):
     print(path)
     return send_from_directory('templates/', path)
+
+# @app.route("/marker")
+# def markerurl():
+
+#     # Find one record of data from the mongo database
+#     urlxxx = 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' 
+#     # Return template and data
+#     return urlxxx
+
+# @app.route("/getmygraph3/<path:path>")
+# def url(path):
+#     urlxxx = { 'urlicon':'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' }
+#     print(urlxxx['urlicon'])
+#     return send_from_directory( urlxxx['urlicon'], path)
+
 
 @app.route("/getmyfiles/<path:path>")
 def send_js(path):
