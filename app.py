@@ -59,6 +59,7 @@ def scrape():
     # Run the scrape function  the function in scrape_mars
     weather_data = scrape_aqiheroku.scrape()
 
+
     # Update the Mongo database using update and upsert=True  weather is the collection
     mongo.db.weather.update({}, weather_data, upsert=True)
 
