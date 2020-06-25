@@ -63,11 +63,11 @@ def scrape():
 
 
     # Run the scrape function  the function in scrape_mars
-    #weather_data = scrape_weather.scrape()
+    weather_data = scrape_weather.scrape()
 
-    weather_data = {
-        "nm": "test5"
-    }
+    # weather_data = {
+    #     "nm": "test5"
+    # }
     # Update the Mongo database using update and upsert=True  weather is the collection
     mongo.db.weather.update({}, weather_data, upsert=True)
 
