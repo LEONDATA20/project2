@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, jsonify, send_from_directory, url_for
 from flask_pymongo import PyMongo
-import scrape_weather
+# import scrape_weather
+import scrape_aqiheroku
 
 # Create an instance of Flask
 app = Flask(__name__, static_url_path="") #can be used to specify a different path for the static files on the web. Defaults to the name of the static_folder folder.
@@ -8,6 +9,8 @@ app = Flask(__name__, static_url_path="") #can be used to specify a different pa
 # Use PyMongo to establish Mongo connection
 # mongo = PyMongo(app, uri="mongodb://localhost:27017/weather_app")
 mongo = PyMongo(app, uri="mongodb+srv://hhos:Password1@cluster0-2fcii.mongodb.net/weather_data?retryWrites=true&w=majority")
+# mongo = PyMongo(app, uri="mongodb://<dbuser>:<dbpassword>@ds231749.mlab.com:31749/heroku_ft9m418t&retryWrites=False")
+# must add &retryWrites=False mLab Mongo can not read the string
 #connect to mongo Atlas
 print(mongo)
 
@@ -19,7 +22,7 @@ def livedata():
     # Find one record of data from the mongo database
     xxx_data = mongo.db.weather.find_one()  
     # Return template and data
-    return render_template("livedata.html", weather=xxx_data) # 
+    return render_template("livedata_heroku.html", weather=xxx_data) # 
 
 @app.route("/")
 def home():
@@ -63,7 +66,8 @@ def scrape():
 
 
     # Run the scrape function  the function in scrape_mars
-    weather_data = scrape_weather.scrape()
+    weather_data = scrape_aqiheroku.scrape()
+
 
     # weather_data = {
     #     "nm": "test5"
