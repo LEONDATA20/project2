@@ -8,7 +8,9 @@ app = Flask(__name__, static_url_path="") #can be used to specify a different pa
 
 # Use PyMongo to establish Mongo connection
 # mongo = PyMongo(app, uri="mongodb://localhost:27017/weather_app")
-mongo = PyMongo(app, uri="mongodb+srv://hhos:Password1@cluster0-2fcii.mongodb.net/weather_data?retryWrites=true&w=majority")
+# mongo = PyMongo(app, uri="mongodb+srv://hhos:Password1@cluster0-2fcii.mongodb.net/weather_data?retryWrites=true&w=majority")
+mongo = PyMongo(app, uri="mongodb+srv://leon:Password1@cluster0-vix4q.mongodb.net/weather_data?retryWrites=true&w=majority")
+
 # mongo = PyMongo(app, uri="mongodb://<dbuser>:<dbpassword>@ds231749.mlab.com:31749/heroku_ft9m418t&retryWrites=False")
 # must add &retryWrites=False mLab Mongo can not read the string
 #connect to mongo Atlas
