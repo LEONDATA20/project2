@@ -8,6 +8,7 @@ app = Flask(__name__, static_url_path="") #can be used to specify a different pa
 # Use PyMongo to establish Mongo connection
 # mongo = PyMongo(app, uri="mongodb://localhost:27017/weather_app")
 mongo = PyMongo(app, uri="mongodb+srv://hhos:Password1@cluster0-2fcii.mongodb.net/weather_data?retryWrites=true&w=majority")
+#connect to mongo Atlas
 print(mongo)
 
 
@@ -65,7 +66,7 @@ def scrape():
     #weather_data = scrape_weather.scrape()
 
     weather_data = {
-        "nm": "test"
+        "nm": "test5"
     }
     # Update the Mongo database using update and upsert=True  weather is the collection
     mongo.db.weather.update({}, weather_data, upsert=True)
