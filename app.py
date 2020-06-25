@@ -9,11 +9,8 @@ app = Flask(__name__, static_url_path="") #can be used to specify a different pa
 # Use PyMongo to establish Mongo connection
 # mongo = PyMongo(app, uri="mongodb://localhost:27017/weather_app")
 mongo = PyMongo(app, uri="mongodb+srv://hhos:Password1@cluster0-2fcii.mongodb.net/weather_data?retryWrites=true&w=majority")
-# mongo = PyMongo(app, uri="mongodb+srv://hang：<password>@cluster0-vix4q.mongodb.net/weather_data?retryWrites=true&w=majority")
-
 # mongo = PyMongo(app, uri="mongodb://<dbuser>:<dbpassword>@ds231749.mlab.com:31749/heroku_ft9m418t&retryWrites=False")
-# must add &retryWrites=False mLab Mongo can not read the string
-#connect to mongo Atlas
+
 print(mongo)
 
 
@@ -40,14 +37,6 @@ def send_bar2(path):
     print(path)
     return send_from_directory('templates/', path)
 
-# @app.route("/marker")
-# def markerurl():
-
-#     # Find one record of data from the mongo database
-#     urlxxx = 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' 
-#     # Return template and data
-#     return urlxxx
-
 # @app.route("/getmygraph3/<path:path>")
 # def url(path):
 #     urlxxx = { 'urlicon':'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' }
@@ -71,9 +60,6 @@ def scrape():
     weather_data = scrape_aqiheroku.scrape()
 
 
-    # weather_data = {
-    #     "nm": "test5"
-    # }
     # Update the Mongo database using update and upsert=True  weather is the collection
     mongo.db.weather.update({}, weather_data, upsert=True)
 
