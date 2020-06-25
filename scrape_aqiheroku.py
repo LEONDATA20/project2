@@ -56,34 +56,6 @@ def scrape():
     weather_data['q1'] = answer1
     weather_data['q2'] = answer2
 
-    # ufo_url='http://127.0.0.1:5500/flask/templates/ufo.html'  #golive url
-    # ufo_soup = scrape_url(ufo_url)
-    # ufo_table = str(ufo_soup.find('tbody'))
-    # weather_data['ufo'] = ufo_table
-
-
-    # #how we get the data
-    # countries_df = pd.read_html('https://developers.google.com/public-data/docs/canonical/countries_csv')
-    # clean_countries = countries_df[0].rename(columns={"name":"Country","country":"Abbr"})
-    # lat = clean_countries['latitude']
-    # lon = clean_countries['longitude']
-    # md = zip(lat,lon)
-    # ri = list(md)
-    # saving_to_list = []
-    # for x in ri:
-    #     lat_lng = f'https://api.airvisual.com/v2/nearest_city?lat={round(list(x)[0],2)}&lon={round(list(x)[1],2)}&key={API_KEY}' 
-    #     time.sleep(12)# reach 'https://www.iqair.com/air-pollution-data-api/plans'
-    #     lat_lng_response = requests.get(lat_lng).json()
-    #     try:
-    #         saving_to_list.append(lat_lng_response)
-    #         pprint(lat_lng_response)
-    #     except:
-    #         print("Something went wrong")
-    #     pass
-    # import json
-    # with open('data.json', 'w') as f:
-    #     json.dump(final_list, f)
-
 
     weather_data['nm'] = 'test'
 
@@ -94,65 +66,9 @@ def scrape():
 
 
 
-    # # Featured Image
-    # url_img='https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
-    # img_soup = scrape_url(url_img)
-    # img_url = img_soup.find('div',class_='img').find('img')['src']
-    # featured_image_url = f'https://www.jpl.nasa.gov{img_url}'
 
-    # weather_data['featured_image_url'] = featured_image_url
-
-
-    # # Mars Weather
-    # url_weather='https://twitter.com/marswxreport?lang=en'
-    # weather_soup = scrape_url(url_weather)
-    # mars_weather = weather_soup.find('div',lang='en').find('span').text
-
-    # weather_data['mars_weather'] = mars_weather
-
-
-    # # Mars Facts
-    # url_table='https://space-facts.com/mars/'
-    # table_soup = scrape_url(url_table)
-    # mars_table = str(table_soup.find('tbody'))
+   
     
-    # weather_data['mars_facts'] = mars_table
-
-    # # tables = pd.read_html(url_table)
-    # # df = tables[0]
-    # # df.columns=['parameter','value']
-    # # html_table = df.to_html()
-    # # facts_table = html_table.replace('\n', ' ')
-    # #df.to_html('table.html')
-    # #mars_data['table'] = facts_table
-    
-
-    # # Mars Hemispheres
-    # url_mars='https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-    # mars_soup = scrape_url(url_mars)
-    # items = mars_soup.find_all('div', class_='description')
-
-    # hemisphere_image_urls=[]
-    # for item in items:
-    #     title=item.h3.text
-    #     url=item.find('a')['href']
-    #     z={'title':title,'img_url':f'https://astrogeology.usgs.gov{url}'}
-    #     hemisphere_image_urls.append(z)
-    
-    # md=[]
-    # for i_url in hemisphere_image_urls:
-    #     image_soup = scrape_url(i_url['img_url'])
-    #     x= image_soup.find('ul').find('a')['href']
-    #     y={'title':i_url['title'],'img_url':x}
-    #     md.append(y)
-
-
-    # weather_data['title_url'] = md
-    
-
-    
-
-# scrape()
 
 
 
