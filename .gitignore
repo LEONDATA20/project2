@@ -1,3 +1,7 @@
+__pycache__/
 venv/
 .vscode/
-__pycache__/
+app copy.py
+account/
+test/
+
