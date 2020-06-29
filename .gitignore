@@ -5,4 +5,5 @@ app copy.py
 account/
 test/
 .DS_Store
-
+templates/.DS_Store
+templates/static/.DS_Store
